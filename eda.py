@@ -38,35 +38,7 @@ def analyze_data(df, is_cleaned=False):
     print("-" * 40)
     print(df.describe())
 
-def clean_data(df):
-    """
-    Καθαρίζει το dataset (NaNs, άπειρες τιμές, διπλότυπα), εκτυπώνει 
-    τα αποτελέσματα του καθαρισμού και επιστρέφει το καθαρό dataframe.
-    """
-    print("\n" + "="*50)
-    print(" 2. ΚΑΘΑΡΙΣΜΟΣ ΔΕΔΟΜΕΝΩΝ")
-    print("="*50)
-    
-    initial_shape = df.shape
-    
-    # 1. Διαχείριση Άπειρων και Ελλιπών Τιμών
-    df.replace([np.inf, -np.inf], np.nan, inplace=True)
-    total_missing = df.isnull().sum().sum()
-    df.dropna(inplace=True)
-    
-    # 2. Διαχείριση Διπλότυπων Εγγραφών
-    total_duplicates = df.duplicated().sum()
-    df.drop_duplicates(inplace=True)
-    
-    final_shape = df.shape
-    
-    print("[+] Ο καθαρισμός ολοκληρώθηκε επιτυχώς!")
-    print(f"    - Αρχικές διαστάσεις: {initial_shape}")
-    print(f"    - Αφαιρέθηκαν {total_missing} ελλιπείς/άπειρες τιμές.")
-    print(f"    - Αφαιρέθηκαν {total_duplicates} διπλότυπες εγγραφές.")
-    print(f"    - Τελικές διαστάσεις: {final_shape}")
-    
-    return df
+
 
 def show_visualizations(df):
     """
@@ -78,7 +50,29 @@ def show_visualizations(df):
     print("Φόρτωση γραφημάτων... (Κλείστε κάθε παράθυρο γραφήματος για να εμφανιστεί το επόμενο)\n")
 
     # Δημιουργία δείγματος για πιο γρήγορα scatter plots
-    df_sample = df.sample(n=min(5000, len(df)), random_state=42)
+    #df_sample = df.sample(n=min(5000, len(df)), random_state=42)
+
+    # --- 1. Correlation Heatmap ---
+    plt.figure(figsize=(20, 16)) # Increased size to accommodate many features
+    corr = df.corr(numeric_only=True)
+
+    # 1. Create a mask to hide the upper triangle
+    mask = np.triu(np.ones_like(corr, dtype=bool))
+
+    # 2. Plot the heatmap with mask, grid (linewidths), and fixed color range
+    sns.heatmap(corr, 
+                mask=mask, 
+                cmap='coolwarm', 
+                vmin=0, vmax=1,       # Anchors colors from -1 to 1
+                linewidths=0.5,        # Creates the grid lines
+                linecolor='white', # Sets the grid line color
+                cbar_kws={"shrink": .8}) # Shrinks the colorbar slightly for aesthetics
+    
+    plt.title('Correlation Heatmap (Lower Triangle)', fontsize=18)
+    plt.xticks(fontsize=10, rotation=90)
+    plt.yticks(fontsize=10, rotation=0)
+    plt.tight_layout()
+    plt.show()
 
     # --- 1. Boxplot ---
     features_to_plot = ['Flow Duration', 'Total Fwd Packets', 'Fwd Packet Length Max', 'Flow Packets/s']
@@ -110,13 +104,6 @@ def show_visualizations(df):
             axes[i].set_ylabel('Frequency (log)')
 
     plt.tight_layout()
-    plt.show()
-
-    # --- 3. Correlation Heatmap ---
-    plt.figure(figsize=(12, 8))
-    corr = df.corr(numeric_only=True)
-    sns.heatmap(corr, cmap='coolwarm')
-    plt.title('Correlation Heatmap')
     plt.show()
 
     # --- 4. Class Distribution ---
@@ -151,50 +138,49 @@ def show_visualizations(df):
         plt.tight_layout()
         plt.show()
 
-def main():
-    print("Γίνεται φόρτωση του Dataset. Παρακαλώ περιμένετε...")
-    try:
-        df = pd.read_csv('archive/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv')
-        df.columns = df.columns.str.strip()
-    except FileNotFoundError:
-        print("Σφάλμα: Το αρχείο δεν βρέθηκε. Ελέγξτε τη διαδρομή (path).")
-        sys.exit(1)
 
-    is_cleaned = False
+def show_all_boxplots_squeezed(df):
+    """
+    Δημιουργεί ένα ενιαίο, μεγάλο γράφημα με οριζόντια boxplots για όλες 
+    τις αριθμητικές μεταβλητές, χρησιμοποιώντας λογαριθμική κλίμακα (symlog)
+    και προσαρμοσμένα όρια για αποφυγή κενού χώρου.
+    """
+    print("\n" + "="*50)
+    print(" ΔΗΜΙΟΥΡΓΙΑ ΣΥΓΚΕΝΤΡΩΤΙΚΟΥ BOXPLOT (LOG SCALE)")
+    print("="*50)
+    
+    # Επιλογή μόνο των αριθμητικών στηλών
+    numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+    
+    if len(numeric_cols) == 0:
+        print("Δεν βρέθηκαν αριθμητικές στήλες.")
+        return
 
-    while True:
-        print("\n" + "*"*40)
-        print("          ΜΕΝΟΥ ΕΠΙΛΟΓΩΝ          ")
-        print("*"*40)
-        print("1. Παρουσίαση Δομής & Στατιστική Ανάλυση")
-        print("2. Καθαρισμός Δεδομένων (Drop NaNs & Duplicates)")
-        print("3. Εμφάνιση Γραφημάτων (Visualizations)")
-        print("4. Έξοδος")
-        print("*"*40)
-        
-        choice = input("Επιλέξτε μια ενέργεια (1-4): ")
-        
-        if choice == '1':
-            analyze_data(df, is_cleaned)
-            
-        elif choice == '2':
-            if not is_cleaned:
-                df = clean_data(df)
-                is_cleaned = True
-            else:
-                print("\n[!] Το dataset έχει ήδη καθαριστεί.")
-                
-        elif choice == '3':
-            if not is_cleaned:
-                print("\n[!] Προσοχή: Εμφανίζονται γραφήματα με μη καθαρισμένα δεδομένα.")
-            show_visualizations(df)
-            
-        elif choice == '4':
-            print("Έξοδος από το πρόγραμμα. Καλή συνέχεια!")
-            break
-            
-        else:
-            print("Μη έγκυρη επιλογή. Παρακαλώ επιλέξτε από το 1 έως το 4.")
+    # Υπολογισμός του απόλυτου ελάχιστου και μέγιστου σε όλο το dataset
+    global_min = df[numeric_cols].min().min()
+    global_max = df[numeric_cols].max().max()
 
-if __name__ == "__main__":
-    main()
+    fig_height = max(10, len(numeric_cols) * 0.3) 
+    plt.figure(figsize=(15, fig_height))
+    
+    ax = sns.boxplot(data=df[numeric_cols], orient='h', palette='viridis', fliersize=2)
+    ax.set_xscale('symlog')
+    
+    # --- ΝΕΟΣ ΚΩΔΙΚΑΣ: Διόρθωση του κενού χώρου (Whitespace) ---
+    # Βάζουμε -1 στο αριστερό όριο για να φαίνονται καθαρά τα μηδενικά 
+    # και πολλαπλασιάζουμε το δεξί όριο x10 (ένα "βήμα" στη λογαριθμική κλίμακα) 
+    # για να μην ακουμπάνε οι τελείες στην άκρη της οθόνης.
+    left_limit = global_min if global_min < 0 else -1
+    right_limit = global_max * 10
+    
+    ax.set_xlim(left=left_limit, right=right_limit)
+    # -----------------------------------------------------------
+    
+    plt.title('Συγκεντρωτικό Boxplot όλων των Χαρακτηριστικών (Προσαρμοσμένο Symlog)', fontsize=18)
+    plt.xlabel('Τιμές (Συμμετρική Λογαριθμική Κλίμακα)', fontsize=12)
+    plt.ylabel('Χαρακτηριστικά (Στήλες)', fontsize=12)
+    
+    plt.grid(axis='x', linestyle='--', alpha=0.7)
+    
+    plt.tight_layout()
+    plt.show()
