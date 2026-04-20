@@ -73,22 +73,7 @@ def show_visualizations(df):
     plt.yticks(fontsize=10, rotation=0)
     plt.tight_layout()
     plt.show()
-
-    # --- 1. Boxplot ---
-    features_to_plot = ['Flow Duration', 'Total Fwd Packets', 'Fwd Packet Length Max', 'Flow Packets/s']
-    fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(15, 10))
-    fig.suptitle('Boxplots για τον Εντοπισμό Ακραίων Τιμών', fontsize=16)
-    axes = axes.flatten()
-
-    for i, col in enumerate(features_to_plot):
-        if col in df.columns:
-            clean_data = df[col].replace([float('inf'), -float('inf')], pd.NA).dropna()
-            sns.boxplot(x=clean_data, ax=axes[i], color='skyblue')
-            axes[i].set_title(f'Distribution of {col}')
-            axes[i].set_xlabel('')
-
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    plt.show()
+    
 
     # --- 2. Histograms ---
     features_hist = ['Flow Duration', 'Total Fwd Packets', 'Total Backward Packets', 'Flow Bytes/s']
@@ -156,14 +141,19 @@ def show_all_boxplots_squeezed(df):
         print("Δεν βρέθηκαν αριθμητικές στήλες.")
         return
 
-    # Υπολογισμός του απόλυτου ελάχιστου και μέγιστου σε όλο το dataset
-    global_min = df[numeric_cols].min().min()
-    global_max = df[numeric_cols].max().max()
+    # --- SPEED OPTIMIZATION: Take a representative sample ---
+    sample_size = min(25000, len(df)) # Adjust 25000 up or down depending on your PC's speed
+    df_plot = df[numeric_cols].sample(n=sample_size, random_state=42)
+
+    # Use df_plot instead of df[numeric_cols] for the min/max and plotting
+    global_min = df_plot.min().min()
+    global_max = df_plot.max().max()
 
     fig_height = max(10, len(numeric_cols) * 0.3) 
     plt.figure(figsize=(15, fig_height))
     
-    ax = sns.boxplot(data=df[numeric_cols], orient='h', palette='viridis', fliersize=2)
+    # Plot using the sampled data
+    ax = sns.boxplot(data=df_plot, orient='h', palette='viridis', fliersize=2)
     ax.set_xscale('symlog')
     
     # --- ΝΕΟΣ ΚΩΔΙΚΑΣ: Διόρθωση του κενού χώρου (Whitespace) ---

@@ -45,7 +45,7 @@ def main():
         elif choice == '3':
             if not is_cleaned:
                 print("\n[!] Προσοχή: Εμφανίζονται γραφήματα με μη καθαρισμένα δεδομένα.")
-            #show_visualizations(df)
+            show_visualizations(df)
             show_all_boxplots_squeezed(df)
             
         elif choice == '4':
