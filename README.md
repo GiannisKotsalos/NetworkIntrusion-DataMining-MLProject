@@ -116,7 +116,7 @@ OPTIONAL: summarize your key findings here, then delete this comment wrapper.
 
 - **GiannisKotsalos** — [@GiannisKotsalos](https://github.com/GiannisKotsalos)
 - **Andreas Karamalikis** — [@Andreaskaram](https://github.com/Andreaskaram)
-- )
+  
 
 ## 📚 References
 
