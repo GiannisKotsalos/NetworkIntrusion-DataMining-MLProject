@@ -114,8 +114,8 @@ OPTIONAL: summarize your key findings here, then delete this comment wrapper.
 
 ## 👥 Authors
 
-- **Your Name** — [@GiannisKotsalos](https://github.com/GiannisKotsalos)
-- **Teammate Name** — [@teammate-username](https://github.com/andreaskaramalikis)
+- **GiannisKotsalos** — [@GiannisKotsalos](https://github.com/GiannisKotsalos)
+- **Andreas Karamalikis** — [@Andreaskaram](https://github.com/Andreaskaram)
 - )
 
 ## 📚 References
