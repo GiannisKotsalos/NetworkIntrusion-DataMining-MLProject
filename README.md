@@ -16,9 +16,9 @@ The project was developed as part of the **"Data Mining & Machine Learning"** co
 
 **At a glance**
 
-- 🧹 **EDA & cleaning:** 2,830,743 raw records and 79 columns reduced to 2,517,883 clean records and 26 columns.
-- 🎯 **Classification:** Logistic Regression, Decision Tree and Random Forest on 15 traffic classes. Random Forest was judged the most balanced and stable model.
-- 🧩 **Clustering:** K-Means, Hierarchical (Ward) and DBSCAN compared against the true labels. K-Means achieved the highest ARI and NMI.
+-  **EDA & cleaning:** 2,830,743 raw records and 79 columns reduced to 2,517,883 clean records and 26 columns.
+-  **Classification:** Logistic Regression, Decision Tree and Random Forest on 15 traffic classes. Random Forest was judged the most balanced and stable model.
+-  **Clustering:** K-Means, Hierarchical (Ward) and DBSCAN compared against the true labels. K-Means achieved the highest ARI and NMI.
 
 ## 📊 Dataset
 
