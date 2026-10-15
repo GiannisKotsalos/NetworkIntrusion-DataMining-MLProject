@@ -237,21 +237,9 @@ The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφο�
 - [CIC-IDS-2017 dataset page](https://www.unb.ca/cic/datasets/ids-2017.html), Canadian Institute for Cybersecurity, University of New Brunswick.
 - [Network Intrusion Dataset (CIC-IDS-2017)](https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset) on Kaggle (`chethuhn/network-intrusion-dataset`).
 
-<details>
-<summary>BibTeX</summary>
 
-```bibtex
-@inproceedings{sharafaldin2018toward,
-  title     = {Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization},
-  author    = {Sharafaldin, Iman and Lashkari, Arash Habibi and Ghorbani, Ali A.},
-  booktitle = {Proceedings of the 4th International Conference on Information Systems Security and Privacy (ICISSP)},
-  pages     = {108--116},
-  year      = {2018},
-  doi       = {10.5220/0006639801080116}
-}
-```
 
-</details>
+
 
 ## 📝 License & Usage
 
