@@ -223,7 +223,7 @@ Steps 3 and 4 are independent of each other.
 
 ## 📄 Report
 
-The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφορά%20Εξόρυξης.pdf)** (written in Greek), covers exploratory data analysis (EDA), preprocessing and classification, clustering, and the implementation environment, including the experimental setup, hyperparameter tuning, and a detailed interpretation of the results.
+The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφορά%20Εξόρυξης.pdf)** (written in Greek) (Link may not work, its in the project files above  ), covers exploratory data analysis (EDA), preprocessing and classification, clustering, and the implementation environment, including the experimental setup, hyperparameter tuning, and a detailed interpretation of the results.
 ## 👥 Authors
 
 - **GiannisKotsalos** — [@GiannisKotsalos](https://github.com/GiannisKotsalos)
