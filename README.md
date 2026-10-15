@@ -22,7 +22,7 @@ The project was developed as part of the **"Data Mining & Machine Learning"** co
 
 ## 📊 Dataset
 
-The project uses the **Network Intrusion Dataset (CIC-IDS-2017)** from Kaggle ([`chethuhn/network-intrusion-dataset`](https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset)), based on the CIC-IDS-2017 dataset created by the [Canadian Institute for Cybersecurity](https://www.unb.ca/cic/datasets/ids-2017.html) (University of New Brunswick). It contains realistic network traffic captured over five days (July 3–7, 2017), with flow-level features extracted using CICFlowMeter.
+The project uses the **Network Intrusion Dataset (CIC-IDS-2017)** from Kaggle ([`chethuhn/network-intrusion-dataset`](https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset)), based on the CIC-IDS-2017 dataset . It contains realistic network traffic captured over five days (July 3–7, 2017), with flow-level features extracted using CICFlowMeter.
 
 Alongside **benign** traffic, the dataset includes a wide range of common attacks: Brute Force (FTP-Patator, SSH-Patator), DoS (Hulk, GoldenEye, slowloris, Slowhttptest), DDoS, Web attacks (Brute Force, XSS, SQL Injection), PortScan, Botnet, Infiltration, and Heartbleed.
 
