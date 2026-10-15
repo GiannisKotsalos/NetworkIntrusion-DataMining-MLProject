@@ -12,7 +12,7 @@
 
 This repository contains the implementation of a Data Mining project focused on analyzing network traffic behavior and detecting cyberattacks. Using the **CIC-IDS-2017** dataset, we apply Machine Learning and Data Mining techniques, from Exploratory Data Analysis (EDA) to Clustering and Classification, to identify anomalies and classify malicious network activity.
 
-The project was developed as part of the **"Data Mining & Machine Learning"** course at the **University of Patras** (Department of Computer Engineering and Informatics, CEID) during the Spring Semester of 2025–2026.
+The project was developed as part of the **"Data Mining & Machine Learning"** course at the Department of Computer Engineering and Informatics, (CEID) during the Spring Semester of 2025–2026.
 
 **At a glance**
 
