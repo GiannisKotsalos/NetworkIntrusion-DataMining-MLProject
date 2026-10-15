@@ -223,7 +223,7 @@ Steps 3 and 4 are independent of each other.
 
 ## 📄 Report
 
-The full technical report, **[Αναφορά Εξόρυξη Δεδομένων.pdf](Αναφορά%20Εξόρυξη%20Δεδομένων.pdf)** (written in Greek), covers the EDA, preprocessing and classification, clustering, and the implementation environment, including the experimental setup, hyperparameter tuning, and a detailed interpretation of the results.
+The full technical report, **[Αναφορά Εξόρυξης .pdf](Αναφορά%20Εξόρυξης%20.pdf)** (written in Greek), covers the EDA, preprocessing and classification, clustering, and the implementation environment, including the experimental setup, hyperparameter tuning, and a detailed interpretation of the results.
 
 ## 👥 Authors
 
