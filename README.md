@@ -221,7 +221,7 @@ Steps 3 and 4 are independent of each other.
 > - `eda.ipynb` was run on Kaggle, which gives direct access to the dataset through the `kagglehub` API and more resources for processing the full dataset. To run it elsewhere, also install `kagglehub` (`pip install kagglehub`).
 > - The processed `.parquet` files in `data/` let you skip steps 1–2 and go straight to classification and clustering. If a file is missing (for example because of GitHub's file-size limits), regenerate it by running the earlier notebooks.
 
-## 📄 Report
+##  Report
 
 The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφορά%20Εξόρυξης.pdf)** (written in Greek) (Link may not work, its in the project files above  ), covers exploratory data analysis (EDA), preprocessing and classification, clustering, and the implementation environment, including the experimental setup, hyperparameter tuning, and a detailed interpretation of the results.
 ##  Authors
@@ -231,7 +231,7 @@ The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφο�
 
 4th-year students, Department of Computer Engineering and Informatics (CEID), University of Patras.
 
-## 📚 References
+##  References
 
 - I. Sharafaldin, A. H. Lashkari, and A. A. Ghorbani, *"Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization,"* in Proc. 4th International Conference on Information Systems Security and Privacy (ICISSP), 2018, pp. 108–116. [DOI: 10.5220/0006639801080116](https://doi.org/10.5220/0006639801080116)
 - [CIC-IDS-2017 dataset page](https://www.unb.ca/cic/datasets/ids-2017.html), Canadian Institute for Cybersecurity, University of New Brunswick.
