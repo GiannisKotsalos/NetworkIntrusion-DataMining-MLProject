@@ -75,7 +75,7 @@ Data-Mining-ML-Project/
 | `network_intrusion_clustering.parquet` | 20,206 | 4% sample for clustering (25 features + `Label`) |
 | `label_mapping.json` | – | Mapping from class names to numeric codes, used to decode model results |
 
-## 🔬 Methodology
+##  Methodology
 
 ```mermaid
 flowchart TD
@@ -170,7 +170,7 @@ Models were evaluated on the test set (100,726 records).
 - **Hierarchical (Ward)** produced more balanced clusters, but agreed less with the true categories than K-Means. It remains a reliable alternative.
 - **DBSCAN** had the lowest ARI but the highest Homogeneity, because several clusters contain almost exclusively `BENIGN` traffic and many samples were isolated as noise. Its largest cluster is dominated by `BENIGN`, with many attacks either absorbed into it or flagged as outliers, while some attacks (parts of `DoS Hulk`) formed clean, distinct clusters. The extreme class imbalance and varying densities make this dataset hard for density-based clustering.
 
-## 🛠️ Technologies & Libraries
+## Technologies & Libraries
 
 | Category | Tools |
 |----------|-------|
@@ -181,7 +181,7 @@ Models were evaluated on the test set (100,726 records).
 | Data access | kagglehub (dataset download in the EDA notebook) |
 | Environment | Jupyter Notebook: EDA on Kaggle, the other notebooks in a local virtual environment |
 
-## 🚀 How to Run
+##  How to Run
 
 ### 1. Clone the repository
 
@@ -224,7 +224,7 @@ Steps 3 and 4 are independent of each other.
 ## 📄 Report
 
 The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφορά%20Εξόρυξης.pdf)** (written in Greek) (Link may not work, its in the project files above  ), covers exploratory data analysis (EDA), preprocessing and classification, clustering, and the implementation environment, including the experimental setup, hyperparameter tuning, and a detailed interpretation of the results.
-## 👥 Authors
+##  Authors
 
 - **GiannisKotsalos** — [@GiannisKotsalos](https://github.com/GiannisKotsalos)
 - **Andreas Karamalikis** — [@Andreaskaram](https://github.com/Andreaskaram)
@@ -241,7 +241,7 @@ The full technical report, **[Αναφορά Εξόρυξης.pdf](./Αναφο�
 
 
 
-## 📝 License & Usage
+##  License & Usage
 
 This project was created for educational purposes as part of a university course. If you reuse any part of it, please credit the authors and the creators of the CIC-IDS-2017 dataset.
 
