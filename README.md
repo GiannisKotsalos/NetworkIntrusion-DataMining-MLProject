@@ -8,7 +8,7 @@
 
 > This project explores the **CIC-IDS-2017** dataset through Exploratory Data Analysis (EDA), Clustering (K-Means, Hierarchical, DBSCAN), and Classification models to identify malicious network behavior.
 
-## 📖 About the Project
+##  About the Project
 
 This repository contains the implementation of a Data Mining project focused on analyzing network traffic behavior and detecting cyberattacks. Using the **CIC-IDS-2017** dataset, we apply Machine Learning and Data Mining techniques, from Exploratory Data Analysis (EDA) to Clustering and Classification, to identify anomalies and classify malicious network activity.
 
@@ -20,7 +20,7 @@ The project was developed as part of the **"Data Mining & Machine Learning"** co
 -  **Classification:** Logistic Regression, Decision Tree and Random Forest on 15 traffic classes. Random Forest was judged the most balanced and stable model.
 -  **Clustering:** K-Means, Hierarchical (Ward) and DBSCAN compared against the true labels. K-Means achieved the highest ARI and NMI.
 
-## 📊 Dataset
+##  Dataset
 
 The project uses the **Network Intrusion Dataset (CIC-IDS-2017)** from Kaggle ([`chethuhn/network-intrusion-dataset`](https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset)), based on the CIC-IDS-2017 dataset . It contains realistic network traffic captured over five days (July 3–7, 2017), with flow-level features extracted using CICFlowMeter.
 
@@ -51,7 +51,7 @@ The data is distributed as 8 CSV files, merged into a single table of **2,830,74
 
 </details>
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 Data-Mining-ML-Project/
